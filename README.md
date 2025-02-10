@@ -1,4 +1,4 @@
-# EXPLORE-Examining-the-Potential-of-Multimodality-for-Vision-Language-Models
+# EXPLORE: Examining the Potential of Multimodality for Vision-Language Models
 
 Below is a template for another sample project. Please follow this template.
 # [Deep Learning Project Template] Enhanced Stable Diffusion: A Deep Learning Approach for Artistic Image Generation
