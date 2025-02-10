@@ -1,5 +1,6 @@
 # EXPLORE: Examining the Potential of Multimodality for Vision-Language Models
 
+
 Below is a template for another sample project. Please follow this template.
 # [Deep Learning Project Template] Enhanced Stable Diffusion: A Deep Learning Approach for Artistic Image Generation
 
@@ -24,6 +25,18 @@ Enhanced Stable Diffusion is a cutting-edge deep learning project that redefines
 
 
 ## Project Technicalities
+
+### Terminologies
+- **Diffusion Model:** A generative model that progressively transforms random noise into coherent data.
+- **Latent Space:** A compressed, abstract representation of data where complex features are captured.
+- **UNet Architecture:** A neural network with an encoder-decoder structure featuring skip connections for better feature preservation.
+- **Text Encoder:** A model that converts text into numerical embeddings for downstream tasks.
+- **Perceptual Loss:** A loss function that measures high-level differences between images, emphasizing perceptual similarity.
+- **Tokenization:** The process of breaking down text into smaller units (tokens) for processing.
+- **Noise Vector:** A randomly generated vector used to initialize the diffusion process in generative models.
+- **Decoder:** A network component that transforms latent representations back into image space.
+- **Iterative Refinement:** The process of gradually improving the quality of generated data through multiple steps.
+- **Conditional Generation:** The process where outputs are generated based on auxiliary inputs, such as textual descriptions.
 
 ### Problem Statements
 - **Problem 1:** Achieving high-resolution and detailed images using conventional diffusion models remains challenging.
