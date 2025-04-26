@@ -32,77 +32,45 @@ This project explores advanced techniques in multimodal AI by enhancing the Inst
 - **Visual Question Answering (VQA):** A task where a model answers natural language questions about an image, requiring both visual understanding and language reasoning.
 - **Model Compression:** Techniques aimed at reducing a model’s size and complexity while preserving its performance, facilitating deployment on edge devices.
 
-### Problem Statements
-- **Problem 1:** Achieving high-resolution and detailed images using conventional diffusion models remains challenging.
-- **Problem 2:** Existing models suffer from slow inference times during the image generation process.
-- **Problem 3:** There is limited capability in performing style transfer and generating diverse artistic variations.
-
-### Loopholes or Research Areas
-- **Evaluation Metrics:** Lack of robust metrics to effectively assess the quality of generated images.
-- **Output Consistency:** Inconsistencies in output quality when scaling the model to higher resolutions.
-- **Computational Resources:** Training requires significant GPU compute resources, which may not be readily accessible.
-
-### Problem vs. Ideation: Proposed 3 Ideas to Solve the Problems
-1. **Optimized Architecture:** Redesign the model architecture to improve efficiency and balance image quality with faster inference.
-2. **Advanced Loss Functions:** Integrate novel loss functions (e.g., perceptual loss) to better capture artistic nuances and structural details.
-3. **Enhanced Data Augmentation:** Implement sophisticated data augmentation strategies to improve the model’s robustness and reduce overfitting.
-
 ### Proposed Solution: Code-Based Implementation
-This repository provides an implementation of the enhanced stable diffusion model using PyTorch. The solution includes:
+This repository contains notebook-based implementations for fine-tuning the InstructBLIP model using LoRA, with experiments on various architecture settings and performance metrics:
 
-- **Modified UNet Architecture:** Incorporates residual connections and efficient convolutional blocks.
-- **Novel Loss Functions:** Combines Mean Squared Error (MSE) with perceptual loss to enhance feature learning.
-- **Optimized Training Loop:** Reduces computational overhead while maintaining performance.
+- **LoRA Integration:** LoRA applied to Q-Former and selected LLM layers.
+- **Configurable Architecture:** Experimentation with hidden size, attention heads, and intermediate layers.
+- **Multimodal Evaluation:** Evaluation using VL-RewardBench dataset and MME benchmark.
 
 ### Key Components
-- **`model.py`**: Contains the modified UNet architecture and other model components.
-- **`train.py`**: Script to handle the training process with configurable parameters.
-- **`utils.py`**: Utility functions for data processing, augmentation, and metric evaluations.
-- **`inference.py`**: Script for generating images using the trained model.
+- **`InsructBlip_fine_tuned_Default.ipynb`**: Contains the modified InstructBLIP architecture with Lora.
+- **`MME_BenchMark_InstructBlip_Vicuna7B_.ipynb`**: MME BenchMark to Evaluate the model.
+- **`evaluation.ipynb`**: Evaluating the Model using ROUGE metrics for text quality and CLIP scores for visual-textual alignment.
 
-## Model Workflow
-The workflow of the Enhanced Stable Diffusion model is designed to translate textual descriptions into high-quality artistic images through a multi-step diffusion process:
+## Model Workflow  
+The workflow of the fine-tuned InstructBLIP model with LoRA is designed to generate natural language outputs (such as answers or captions) from image-text pairs through a multi-stage vision-language processing pipeline:
 
 1. **Input:**
-   - **Text Prompt:** The model takes a text prompt (e.g., "A surreal landscape with mountains and rivers") as the primary input.
-   - **Tokenization:** The text prompt is tokenized and processed through a text encoder (such as a CLIP model) to obtain meaningful embeddings.
-   - **Latent Noise:** A random latent noise vector is generated to initialize the diffusion process, which is then conditioned on the text embeddings.
+   - **Instruction Prompt + Image:** The model takes a text instruction and an image input (e.g., "Describe the scene in the image").
+   - **Tokenization:** The instruction is processed into embeddings using a language encoder (such as T5 or similar).
+   - **Image Encoding:** The image is encoded using a vision transformer or CLIP-like image encoder to obtain visual embeddings.
 
-2. **Diffusion Process:**
-   - **Iterative Refinement:** The conditioned latent vector is fed into a modified UNet architecture. The model iteratively refines this vector by reversing a diffusion process, gradually reducing noise while preserving the text-conditioned features.
-   - **Intermediate States:** At each step, intermediate latent representations are produced that increasingly capture the structure and details dictated by the text prompt.
+2. **Query Transformer (Q-Former):**
+   - **Feature Extraction:** The Q-Former extracts relevant features from the image, guided by the instruction.
+   - **Multimodal Embedding:** Outputs refined embeddings conditioned on both modalities (text and image).
 
-3. **Output:**
-   - **Decoding:** The final refined latent representation is passed through a decoder (often part of a Variational Autoencoder setup) to generate the final image.
-   - **Generated Image:** The output is a synthesized image that visually represents the input text prompt, complete with artistic style and detail.
+3. **Language Model Decoding:**
+   - **Text Generation:** The conditioned embeddings are passed through a language model decoder (e.g., T5) to generate natural language outputs such as answers or captions.
+
+4. **Fine-Tuning with LoRA:**
+   - **LoRA Integration:** LoRA layers are inserted into the Q-Former and LLM to reduce training parameters while maintaining performance.
+   - **Training Dataset:** The model is fine-tuned using the VL-RewardBench dataset.
+
+5. **Evaluation:**
+   - **ROUGE Metrics:** ROUGE-1, ROUGE-2, and ROUGE-L are used to assess the quality of the generated text.
+   - **CLIP Score:** Used to evaluate the alignment between visual and textual embeddings. Higher scores indicate better alignment.
+   - **MME Benchmark:** The model is evaluated on the MME benchmark to assess its performance on multimodal vision-language tasks.
 
 ## How to Run the Code
 
-1. **Clone the Repository:**
-    ```bash
-    git clone https://github.com/yourusername/enhanced-stable-diffusion.git
-    cd enhanced-stable-diffusion
-    ```
-
-2. **Set Up the Environment:**
-    Create a virtual environment and install the required dependencies.
-    ```bash
-    python3 -m venv venv
-    source venv/bin/activate  # On Windows use: venv\Scripts\activate
-    pip install -r requirements.txt
-    ```
-
-3. **Train the Model:**
-    Configure the training parameters in the provided configuration file and run:
-    ```bash
-    python train.py --config configs/train_config.yaml
-    ```
-
-4. **Generate Images:**
-    Once training is complete, use the inference script to generate images.
-    ```bash
-    python inference.py --checkpoint path/to/checkpoint.pt --input "A surreal landscape with mountains and rivers"
-    ```
+This code can be run directly on **Google Colab** with an **A100 GPU** for optimal performance.
 
 ## Acknowledgments
 - **Open-Source Communities:** Thanks to the contributors of PyTorch, Hugging Face, and other libraries for their amazing work.
