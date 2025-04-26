@@ -10,8 +10,8 @@ This project explores advanced techniques in multimodal AI by enhancing the Inst
 - **Supervisor Name:** Dr. Muzammil Behzad
 
 ### Project Documents
-- **Presentation:** [Project Presentation](/presentation.pptx)
-- **Report:** [Project Report](/report.pdf)
+- **Presentation:** [Project Presentation](/Explore_ICS504_242.pptx)
+- **Report:** [Project Report](/EXPLORE- Examining the Potential of Multimodality for Vision-Language Models.pdf)
 
 ### Reference Paper
 - [InstructBLIP: Towards General-purpose Vision-Language Models with Instruction Tuning](https://arxiv.org/abs/2305.06500)
