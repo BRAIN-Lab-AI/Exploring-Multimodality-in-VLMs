@@ -1,42 +1,36 @@
 # EXPLORE: Examining the Potential of Multimodality for Vision-Language Models
 
 
-Below is a template for another sample project. Please follow this template.
-# [Deep Learning Project Template] Enhanced Stable Diffusion: A Deep Learning Approach for Artistic Image Generation
-
 ## Introduction
-Enhanced Stable Diffusion is a cutting-edge deep learning project that redefines artistic image generation by leveraging an advanced diffusion process to convert textual descriptions into high-quality images. By integrating a modified UNet architecture with innovative loss functions and enhanced data augmentation strategies, the model iteratively refines a latent noise vector conditioned on text embeddings to produce detailed and visually compelling artwork. This approach not only addresses common challenges such as slow inference times and output inconsistencies found in traditional diffusion models, but also pushes the boundaries of creative image synthesis, paving the way for novel applications in art, design, and multimedia content creation.
+This project explores advanced techniques in multimodal AI by enhancing the InstructBLIP vision-language model—a state-of-the-art architecture designed to interpret visual content through instruction-guided prompting. InstructBLIP leverages a powerful query transformer to conditionally extract image features based on natural language instructions, enabling robust zero-shot performance across a wide range of tasks such as image captioning, visual question answering, and visual search. To further optimize the model for deployment in resource-constrained environments, we integrate Low-Rank Adaptation (LoRA), a parameter-efficient fine-tuning strategy that significantly reduces memory and computational overhead. By systematically evaluating multiple architectural configurations and fine-tuning methods, this work aims to maintain at least 70% of the original model's performance while drastically reducing its complexity—paving the way for scalable, real-world applications in intelligent visual understanding.
 
 ## Project Metadata
 ### Authors
-- **Team:** Mohammad Ahmad, Umar Abdullah and Malik Hussain
+- **Team:** Mohammed Alharhti, Abdulaziz Alshukri and Saad Alghamdi
 - **Supervisor Name:** Dr. Muzammil Behzad
-- **Affiliations:** SABIC, ARAMCO and KFUPM
 
 ### Project Documents
 - **Presentation:** [Project Presentation](/presentation.pptx)
 - **Report:** [Project Report](/report.pdf)
 
 ### Reference Paper
-- [High-Resolution Image Synthesis with Latent Diffusion Models](https://arxiv.org/abs/2112.10752)
+- [InstructBLIP: Towards General-purpose Vision-Language Models with Instruction Tuning](https://arxiv.org/abs/2305.06500)
 
 ### Reference Dataset
-- [LAION-5B Dataset](https://laion.ai/blog/laion-5b/)
+- [VL-RewardBench Dataset](https://huggingface.co/datasets/MMInstruction/VL-RewardBench)
 
 
 ## Project Technicalities
 
 ### Terminologies
-- **Diffusion Model:** A generative model that progressively transforms random noise into coherent data.
-- **Latent Space:** A compressed, abstract representation of data where complex features are captured.
-- **UNet Architecture:** A neural network with an encoder-decoder structure featuring skip connections for better feature preservation.
-- **Text Encoder:** A model that converts text into numerical embeddings for downstream tasks.
-- **Perceptual Loss:** A loss function that measures high-level differences between images, emphasizing perceptual similarity.
-- **Tokenization:** The process of breaking down text into smaller units (tokens) for processing.
-- **Noise Vector:** A randomly generated vector used to initialize the diffusion process in generative models.
-- **Decoder:** A network component that transforms latent representations back into image space.
-- **Iterative Refinement:** The process of gradually improving the quality of generated data through multiple steps.
-- **Conditional Generation:** The process where outputs are generated based on auxiliary inputs, such as textual descriptions.
+- **Vision-Language Model:** A model designed to jointly process and understand visual and textual inputs for tasks such as image captioning or visual question answering.
+- **InstructBLIP:** An instruction-tuned vision-language model that leverages query-based prompting to enhance image-text understanding in zero-shot and few-shot settings.
+- **Query Transforme:** A transformer architecture variant that conditions image features based on textual prompts, allowing for instruction-specific representation learning.
+- **Zero-Shot Learning:** A setting where a model performs tasks it hasn’t explicitly been trained on, using generalization learned from related data.
+- **LoRA (Low-Rank Adaptation):** A fine-tuning technique that introduces low-rank matrices into transformer layers, significantly reducing the number of trainable parameters.
+- **Parameter-Efficient Fine-Tuning:** A method of adapting pre-trained models using a small number of trainable parameters to save computational resources and memory.
+- **Visual Question Answering (VQA):** A task where a model answers natural language questions about an image, requiring both visual understanding and language reasoning.
+- **Model Compression:** Techniques aimed at reducing a model’s size and complexity while preserving its performance, facilitating deployment on edge devices.
 
 ### Problem Statements
 - **Problem 1:** Achieving high-resolution and detailed images using conventional diffusion models remains challenging.
@@ -112,5 +106,4 @@ The workflow of the Enhanced Stable Diffusion model is designed to translate tex
 
 ## Acknowledgments
 - **Open-Source Communities:** Thanks to the contributors of PyTorch, Hugging Face, and other libraries for their amazing work.
-- **Individuals:** Special thanks to bla, bla, bla for the amazing team effort, invaluable guidance and support throughout this project.
-- **Resource Providers:** Gratitude to ABC-organization for providing the computational resources necessary for this project.
+- **Individuals:** Special thanks to Saad Alghamdi, Abdulaziz Alshukri and Mohammed Alharthi for the amazing team effort, invaluable guidance and support throughout this project.
