@@ -11,7 +11,7 @@ This project explores advanced techniques in multimodal AI by enhancing the Inst
 
 ### Project Documents
 - **Presentation:** [Project Presentation](/Explore_ICS504_242.pptx)
-- **Report:** [Project Report](/EXPLORE- Examining the Potential of Multimodality for Vision-Language Models.pdf)
+- **Report:** [Project Report](/EXPLORE_Report.pdf)
 
 ### Reference Paper
 - [InstructBLIP: Towards General-purpose Vision-Language Models with Instruction Tuning](https://arxiv.org/abs/2305.06500)
