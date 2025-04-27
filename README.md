@@ -74,4 +74,5 @@ This code can be run directly on **Google Colab** with an **A100 GPU** for optim
 
 ## Acknowledgments
 - **Open-Source Communities:** Thanks to the contributors of PyTorch, Hugging Face, and other libraries for their amazing work.
-- **Individuals:** Special thanks to Saad Alghamdi, Abdulaziz Alshukri and Mohammed Alharthi for the amazing team effort, invaluable guidance and support throughout this project.
+- **Individuals:** Special thanks to Saad Alghamdi, Abdulaziz Alshukri and Mohammed Alharthi for the amazing team effort, throughout this project.
+- Special thanks to Dr. Muzamil Behzad for his guidance and support throughout the project.
